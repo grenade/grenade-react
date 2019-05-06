@@ -4,8 +4,8 @@ export const t = {
 };
 
 export const actions = ({
-  loadGithubUserEvents: name => ({
-    type: t.LOAD_GITHUB_USER_EVENTS, name
+  loadGithubUserEvents: githubUsername => ({
+    type: t.LOAD_GITHUB_USER_EVENTS, githubUsername
   }),
   loadGithubUserEventsSuccess: data => ({
     type: t.LOAD_GITHUB_USER_EVENTS_SUCCESS, data

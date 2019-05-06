@@ -3,11 +3,11 @@ import { put, takeLatest } from 'redux-saga/effects'
 import {actions, t} from './actions';
 
 // the base URL for your REST API backend
-const baseUrl = 'https://api.github.com/users';
+const githubApiBaseUrl = 'https://api.github.com';
 
 // sending request with username and getting user data from GitHub 
 function* loadGithubUserEvents(action) {
-  const response = yield axios.get(`${baseUrl}/${action.name}/events`);
+  const response = yield axios.get(`${githubApiBaseUrl}/users/${action.githubUsername}/events`);
   yield put(actions.loadGithubUserEventsSuccess(response.data))
 }
 
