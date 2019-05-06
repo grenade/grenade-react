@@ -30,7 +30,7 @@ class GithubTimelineElement extends React.Component {
           iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/Octocat.png',
           iconHeight: '60px',
           iconWidth: '60px',
-          title: 'Branch',
+          title: this.props.timelineEvent.payload.ref_type + ' created',
           subtitle: this.props.timelineEvent.repo.name + '/' + this.props.timelineEvent.payload.ref,
           commits: this.props.timelineEvent.payload.commits || []
         }
@@ -111,7 +111,7 @@ class GithubTimelineElement extends React.Component {
             this.state.commits.map((commit, key) =>
               <li key={key}>
                 <a href={commit.url.replace('api.github.com/repos', 'github.com').replace('/commits/', '/commit/')}>
-                  {commit.sha.substring(0, 8)}
+                  {commit.sha.substring(0, 7)}
                 </a> {commit.message}
               </li>
             )
