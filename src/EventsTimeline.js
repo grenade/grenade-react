@@ -11,7 +11,7 @@ class EventsTimelineComponent extends React.Component {
   }
 
   render () {
-    this.timelineEvents = this.props.events.events.map((event, key) => (
+    this.timelineEvents = this.props.events.map((event, key) => (
       <GithubTimelineElement timelineEvent={event} />
     ));
     return (
@@ -25,7 +25,7 @@ class EventsTimelineComponent extends React.Component {
 // making the most current state of 'user' available as props in the component
 const mapStateToProps = (state) => {
     return {
-        events: state.events
+        events: state.events.events
     };
 };
 

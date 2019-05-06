@@ -16,26 +16,26 @@ body {
   color: rgb(233, 30, 99);
 }
 
-.pull-request .vertical-timeline-element-content {
+.pull-request .vertical-timeline-element-content,
+.branch .vertical-timeline-element-content {
   border-top: 3px solid rgb(33, 150, 243);
 }
-.pull-request .vertical-timeline-element-icon {
+.pull-request .vertical-timeline-element-icon,
+.branch .vertical-timeline-element-icon {
   background: rgb(33, 150, 243);
 }
-.pull-request .vertical-timeline-element-title {
+.pull-request .vertical-timeline-element-title,
+.branch .vertical-timeline-element-title {
   color: rgb(33, 150, 243);
 }
 
-.push .vertical-timeline-element-content,
-.branch .vertical-timeline-element-content {
+.push .vertical-timeline-element-content {
   border-top: 3px solid rgb(16, 204, 82);
 }
-.push .vertical-timeline-element-icon,
-.branch .vertical-timeline-element-icon  {
+.push .vertical-timeline-element-icon {
   background: rgb(16, 204, 82);
 }
-.push .vertical-timeline-element-title,
-.branch .vertical-timeline-element-title {
+.push .vertical-timeline-element-title {
   color: rgb(16, 204, 82);
 }
 

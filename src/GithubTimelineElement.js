@@ -175,7 +175,7 @@ class GithubTimelineElement extends React.Component {
       <VerticalTimelineElement
         className={this.state.className}
         key={this.state.id}
-        date={this.state.date}
+        date={ new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short' }).format(new Date(this.state.date)) }
         icon={<Image src={this.state.iconUrl} style={{width: this.state.iconWidth, height: this.state.iconHeight}} fluid roundedCircle />} >
         <h3 className={'vertical-timeline-element-title ' + this.state.className}>
           {this.state.title}
