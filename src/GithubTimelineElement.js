@@ -13,7 +13,7 @@ class GithubTimelineElement extends React.Component {
           className: 'pull-request',
           date: this.props.timelineEvent.created_at,
           url: this.props.timelineEvent.payload.pull_request.html_url,
-          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/Octocat.png',
+          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
           iconHeight: '60px',
           iconWidth: '60px',
           title: 'pull request',
@@ -27,7 +27,7 @@ class GithubTimelineElement extends React.Component {
           },
           body: this.props.timelineEvent.payload.pull_request.title,
           commits: []
-        }
+        };
         break;
       case 'PullRequestReviewCommentEvent':
         this.state = {
@@ -35,7 +35,7 @@ class GithubTimelineElement extends React.Component {
           className: 'push',
           date: this.props.timelineEvent.created_at,
           url: this.props.timelineEvent.payload.comment.html_url,
-          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/Octocat.png',
+          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
           iconHeight: '60px',
           iconWidth: '60px',
           title: 'pull request review comment',
@@ -48,7 +48,7 @@ class GithubTimelineElement extends React.Component {
             suffix: ''
           },
           commits: []
-        }
+        };
         break;
       case 'CreateEvent':
         this.state = {
@@ -56,7 +56,7 @@ class GithubTimelineElement extends React.Component {
           className: 'branch',
           date: this.props.timelineEvent.created_at,
           url: 'https://github.com/' + this.props.timelineEvent.repo.name + '/tree/' + this.props.timelineEvent.payload.ref,
-          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/Octocat.png',
+          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
           iconHeight: '60px',
           iconWidth: '60px',
           title: this.props.timelineEvent.payload.ref_type + ' created',
@@ -69,7 +69,7 @@ class GithubTimelineElement extends React.Component {
             suffix: ''
           },
           commits: []
-        }
+        };
         break;
       case 'DeleteEvent':
         this.state = {
@@ -77,7 +77,7 @@ class GithubTimelineElement extends React.Component {
           className: 'delete',
           date: this.props.timelineEvent.created_at,
           url: 'https://github.com/' + this.props.timelineEvent.repo.name + '/tree/' + this.props.timelineEvent.payload.ref,
-          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/Octocat.png',
+          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
           iconHeight: '60px',
           iconWidth: '60px',
           title: 'delete',
@@ -87,7 +87,7 @@ class GithubTimelineElement extends React.Component {
             suffix: ''
           },
           commits: this.props.timelineEvent.payload.commits || []
-        }
+        };
         break;
       case 'PushEvent':
         this.state = {
@@ -95,7 +95,7 @@ class GithubTimelineElement extends React.Component {
           className: 'push',
           date: this.props.timelineEvent.created_at,
           url: 'https://github.com/' + this.props.timelineEvent.repo.name + '/commit/' + this.props.timelineEvent.payload.commits[0].sha.substring(0, 7),
-          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/Octocat.png',
+          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
           iconHeight: '60px',
           iconWidth: '60px',
           title: 'push',
@@ -108,7 +108,7 @@ class GithubTimelineElement extends React.Component {
             suffix: null
           },
           commits: this.props.timelineEvent.payload.commits
-        }
+        };
         break;
       case 'ForkEvent':
         this.state = {
@@ -116,18 +116,17 @@ class GithubTimelineElement extends React.Component {
           className: 'fork',
           date: this.props.timelineEvent.created_at,
           url: 'https://github.com/' + this.props.timelineEvent.payload.forkee.full_name,
-          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/Octocat.png',
+          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
           iconHeight: '60px',
           iconWidth: '60px',
           title: 'Fork',
-          subtitle: this.props.timelineEvent.repo.name + ', to: ' + this.props.timelineEvent.payload.forkee.full_name,
           subtitle: {
             prefix: this.props.timelineEvent.repo.name + ', to: ' + this.props.timelineEvent.payload.forkee.full_name,
             link: null,
             suffix: ''
           },
           commits: this.props.timelineEvent.payload.commits || []
-        }
+        };
         break;
       case 'IssueCommentEvent':
         this.state = {
@@ -135,7 +134,7 @@ class GithubTimelineElement extends React.Component {
           className: 'push',
           date: this.props.timelineEvent.created_at,
           url: this.props.timelineEvent.payload.comment.html_url,
-          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/Octocat.png',
+          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
           iconHeight: '60px',
           iconWidth: '60px',
           title: 'issue comment',
@@ -148,7 +147,7 @@ class GithubTimelineElement extends React.Component {
             suffix: ''
           },
           commits: []
-        }
+        };
         break;
       default:
         this.state = {
@@ -156,7 +155,7 @@ class GithubTimelineElement extends React.Component {
           className: 'push',
           date: this.props.timelineEvent.created_at,
           //url: 'https://github.com/' + this.props.timelineEvent.repo.name + '/commit/' + this.props.timelineEvent.payload.commits[0].sha.substring(0, 7),
-          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/Octocat.png',
+          iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
           iconHeight: '60px',
           iconWidth: '60px',
           title: this.props.timelineEvent.type,
@@ -166,7 +165,7 @@ class GithubTimelineElement extends React.Component {
             suffix: ''
           },
           commits: []
-        }
+        };
         break;
     }
   }

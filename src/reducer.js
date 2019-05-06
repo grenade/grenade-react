@@ -2,7 +2,8 @@ import {t} from './actions';
 
 // starting with no data
 const initialState = {
-  events: []
+  githubEvents: [],
+  bugzillaEvents: []
 };
 
 export const eventsReducer = (state = initialState, action) => {
@@ -12,9 +13,13 @@ export const eventsReducer = (state = initialState, action) => {
     case t.LOAD_GITHUB_USER_EVENTS_SUCCESS:
       return {
         ...state,
-        events: action.data
+        githubEvents: action.data
       };
-
+    case t.LOAD_BUGZILLA_USER_EVENTS_SUCCESS:
+      return {
+        ...state,
+        bugzillaEvents: action.data.bugs
+      };
     default:
       return state;
   }

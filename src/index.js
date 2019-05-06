@@ -7,7 +7,8 @@ import {eventsReducer} from './reducer';
 import {applyMiddleware, combineReducers, createStore} from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import {Provider} from 'react-redux';
-import {watchLoadGithubUserEvents} from './saga';
+//import {watchLoadGithubUserEvents, watchLoadBugzillaUserEvents} from './saga';
+import {watchAll} from './saga';
 
 // initializing saga middleware for the store
 const sagaMiddleware = createSagaMiddleware();
@@ -18,7 +19,7 @@ const store = createStore(combineReducers({
 }), applyMiddleware(sagaMiddleware));
 
 // triggering watchLoadGithubUserEvents when there is a LOAD_GITHUB_USER_EVENTS
-sagaMiddleware.run(watchLoadGithubUserEvents);
+sagaMiddleware.run(watchAll);
 
 // wrapping the App in a Provider to work with React and Redux
 ReactDOM.render(

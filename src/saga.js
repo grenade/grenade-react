@@ -1,17 +1,23 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects'
+import { all, put, takeLatest } from 'redux-saga/effects'
 import {actions, t} from './actions';
 
-// the base URL for your REST API backend
 const githubApiBaseUrl = 'https://api.github.com';
+const bugzillaApiBaseUrl = 'https://bugzilla.mozilla.org/rest';
 
-// sending request with username and getting user data from GitHub 
 function* loadGithubUserEvents(action) {
-  const response = yield axios.get(`${githubApiBaseUrl}/users/${action.githubUsername}/events`);
+  const response = yield axios.get(`${githubApiBaseUrl}/users/${action.username}/events`);
   yield put(actions.loadGithubUserEventsSuccess(response.data))
 }
 
-// watches for actions dispatched to the store and starts loadGithubUserEvents saga
-export function* watchLoadGithubUserEvents() {
-  yield takeLatest(t.LOAD_GITHUB_USER_EVENTS, loadGithubUserEvents)
+function* loadBugzillaUserEvents(action) {
+  const response = yield axios.get(`${bugzillaApiBaseUrl}/bug?assigned_to=${action.username}`);
+  yield put(actions.loadBugzillaUserEventsSuccess(response.data))
+}
+
+export function *watchAll() {
+  yield all([
+    takeLatest(t.LOAD_BUGZILLA_USER_EVENTS, loadBugzillaUserEvents),
+    takeLatest(t.LOAD_GITHUB_USER_EVENTS, loadGithubUserEvents)
+  ]);
 }
