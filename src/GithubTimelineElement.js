@@ -10,7 +10,7 @@ class GithubTimelineElement extends React.Component {
       case 'PullRequestEvent':
         this.state = {
           id: this.props.timelineEvent.id,
-          className: 'pull-request',
+          className: 'blue',
           date: this.props.timelineEvent.created_at,
           url: this.props.timelineEvent.payload.pull_request.html_url,
           iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
@@ -32,7 +32,7 @@ class GithubTimelineElement extends React.Component {
       case 'PullRequestReviewCommentEvent':
         this.state = {
           id: this.props.timelineEvent.id,
-          className: 'push',
+          className: 'blue',
           date: this.props.timelineEvent.created_at,
           url: this.props.timelineEvent.payload.comment.html_url,
           iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
@@ -53,7 +53,7 @@ class GithubTimelineElement extends React.Component {
       case 'CreateEvent':
         this.state = {
           id: this.props.timelineEvent.id,
-          className: 'branch',
+          className: 'blue',
           date: this.props.timelineEvent.created_at,
           url: 'https://github.com/' + this.props.timelineEvent.repo.name + '/tree/' + this.props.timelineEvent.payload.ref,
           iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
@@ -74,7 +74,7 @@ class GithubTimelineElement extends React.Component {
       case 'DeleteEvent':
         this.state = {
           id: this.props.timelineEvent.id,
-          className: 'delete',
+          className: 'red opaque',
           date: this.props.timelineEvent.created_at,
           url: 'https://github.com/' + this.props.timelineEvent.repo.name + '/tree/' + this.props.timelineEvent.payload.ref,
           iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
@@ -92,7 +92,7 @@ class GithubTimelineElement extends React.Component {
       case 'PushEvent':
         this.state = {
           id: this.props.timelineEvent.id,
-          className: 'push',
+          className: 'green',
           date: this.props.timelineEvent.created_at,
           url: 'https://github.com/' + this.props.timelineEvent.repo.name + '/commit/' + this.props.timelineEvent.payload.commits[0].sha.substring(0, 7),
           iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
@@ -113,7 +113,7 @@ class GithubTimelineElement extends React.Component {
       case 'ForkEvent':
         this.state = {
           id: this.props.timelineEvent.id,
-          className: 'fork',
+          className: 'blue',
           date: this.props.timelineEvent.created_at,
           url: 'https://github.com/' + this.props.timelineEvent.payload.forkee.full_name,
           iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
@@ -131,7 +131,7 @@ class GithubTimelineElement extends React.Component {
       case 'IssueCommentEvent':
         this.state = {
           id: this.props.timelineEvent.id,
-          className: 'push',
+          className: 'blue',
           date: this.props.timelineEvent.created_at,
           url: this.props.timelineEvent.payload.comment.html_url,
           iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',
@@ -152,7 +152,7 @@ class GithubTimelineElement extends React.Component {
       default:
         this.state = {
           id: this.props.timelineEvent.id,
-          className: 'push',
+          className: 'red',
           date: this.props.timelineEvent.created_at,
           //url: 'https://github.com/' + this.props.timelineEvent.repo.name + '/commit/' + this.props.timelineEvent.payload.commits[0].sha.substring(0, 7),
           iconUrl: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png',

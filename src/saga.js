@@ -17,7 +17,7 @@ function* loadBugzillaUserEvents(action) {
 
 export function *watchAll() {
   yield all([
-    takeLatest(t.LOAD_BUGZILLA_USER_EVENTS, loadBugzillaUserEvents),
-    takeLatest(t.LOAD_GITHUB_USER_EVENTS, loadGithubUserEvents)
+    takeLatest(t.LOAD_GITHUB_USER_EVENTS, loadGithubUserEvents),
+    takeLatest(t.LOAD_BUGZILLA_USER_EVENTS, loadBugzillaUserEvents)
   ]);
 }
